@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="../template.xhtml">
+
+	<ui:define name="title">Pesquisa de Produtos</ui:define>
+	<ui:define name="content">
+		<h1 class="page-header">Refine sua busca</h1>
+
+		<osms:navBarHeaderPublic></osms:navBarHeaderPublic>
+
+		<div class="row col-sm-9">
+			<h:form styleClass="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nome do Produto:</label>
+					<div class="col-sm-8">
+						<h:inputText id="name" styleClass="form-control"
+							value="#{searchProd.options.name}"
+							p:placeholder="Nome do Produto" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Descrição do Produto:</label>
+					<div class="col-sm-8">
+						<h:inputTextarea styleClass="form-control" rows="10"
+							id="description" value="#{searchProd.options.description}"
+							p:placeholder="Description of product"></h:inputTextarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Faixa de Preço:</label>
+
+					<div class="col-sm-2">
+						De:
+						<h:inputText styleClass="form-control"
+							value="#{searchProd.options.priceIni}"
+							p:placeholder="Preço do Produto" />
+					</div>
+
+					<div class="col-sm-2">
+						Até:
+						<h:inputText styleClass="form-control"
+							value="#{searchProd.options.price}"
+							p:placeholder="Preço do Produto" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-5">
+						<div class="btn-toolbar">
+							<h:commandLink
+								styleClass="btn btn-lg btn-success glyphicon glyphicon-search"
+								title="Search" action="#{searchProd.search}"> Search</h:commandLink>
+						</div>
+					</div>
+				</div>
+				<h:messages styleClass="alert alert-info"></h:messages>
+			</h:form>
+
+			<h:form>
+				<h:dataTable value="#{searchProd.result}" var="product"
+					styleClass="table-striped table-bordered table-condensed table-hover"
+					columnClasses="col-sm-3, col-sm-4, col-sm-4, col-sm-3 "
+					rendered="#{searchProd.result.isEmpty()==false}">
+
+					<h:column>
+						<f:facet name="header">
+						Image
+					</f:facet>
+						<div class="thumbnail">
+							<img src="#{product.image}" alt="..."> </img>
+						</div>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+						Name
+					</f:facet>
+				#{product.name}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">
+						Description
+					</f:facet>
+				#{product.description}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">
+						Price
+					</f:facet>
+				R$ #{product.price}
+				</h:column>
+
+				</h:dataTable>
+
+				<center>
+					<ul class="pagination">
+						<ui:repeat value="#{searchProd.pages}" var="page">
+							<li class="#{searchProd.getPageClass(page)}"><h:commandLink
+									value="#{page}" action="#{searchProd.goToPage(page)}">
+									<f:ajax render="@form"></f:ajax>
+								</h:commandLink></li>
+						</ui:repeat>
+					</ul>
+				</center>
+
+
+			</h:form>
+
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

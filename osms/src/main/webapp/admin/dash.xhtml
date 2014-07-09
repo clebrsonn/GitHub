@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/templateAdmin.xhtml">
+
+	<ui:define name="title">Painel Administrativo</ui:define>
+
+	<ui:define name="content">
+		<h1 class="page-header">Selecione uma das opções do menu acima</h1>
+
+	<osms:navBarHeader active="active"></osms:navBarHeader>
+
+		<div class="col-sm-offset-3 col-sm-5">
+
+			<form class="form-signin" role="form">
+				<h2 class="form-signin-heading">Please sign in</h2>
+				<input type="email" class="form-control" placeholder="Email address"
+					required="" autofocus="" disabled="true"></input> <input type="password"
+					class="form-control" placeholder="Password" required="" disabled="true"></input>
+				<div class="checkbox">
+					<label> <input type="checkbox" value="remember-me"></input>
+						Remember me
+					</label>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" disabled="true">Sign
+					in</button>
+			</form>
+
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

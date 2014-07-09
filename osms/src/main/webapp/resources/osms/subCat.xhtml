@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<composite:interface>
+</composite:interface>
+
+
+<composite:implementation>
+	<div class="well col-sm-3 pull-right" id="sidebar" role="navigation">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+					Sub-Categorias
+					</h4>
+				</div>
+			</div>
+			<ui:repeat var="category" value="#{showCategory.form.categories}">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+								href="##{category.id}"> #{category.name} </a>
+						</h4>
+					</div>
+					<div id="#{category.id}" class="panel-collapse collapse">
+						<div class="panel-body"
+							value="#{showCategory.setCatPaiId(category.id)}">
+
+
+							<ui:repeat var="sub" value="#{showCategory.subCat}">
+
+								<li><a href="listCat.xhtml?catId=#{category.id}">
+										#{sub.name}</a></li>
+							</ui:repeat>
+						</div>
+					</div>
+				</div>
+			</ui:repeat>
+		</div>
+
+	</div>
+
+</composite:implementation>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<composite:interface>
+
+
+	<composite:attribute name="activeHome" default="desactived" />
+	<composite:attribute name="activeOrder" default="desactived" />
+</composite:interface>
+
+<composite:implementation>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">OSMS</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="#{cc.attrs.activeHome}"><a
+						href="../public/listProd.xhtml" class="glyphicon glyphicon-home" /></li>
+					<li><a href="../admin/dash.xhtml">Admin</a></li>
+					<li class="dropdown #{cc.attrs.activeOrder}"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">Carrinho <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu"
+							style="max-height: 300px; overflow: auto;">
+							<ui:repeat var="product"
+								value="#{newPedido.form.pedido.products}">
+								<li class="list-group-item">
+									<div class="media">
+										<a class="pull-left thumbnail col-sm-4"
+											href="../public/showProd.xhtml?prodId=#{product.id}"> <img
+											class="media-object" src="#{product.image}" alt="..."></img></a>
+										<div class="media-body">
+											<h:form class="pull-right">
+												<h:commandLink class="glyphicon glyphicon-remove"
+													action="#{newPedido.form.setRemove(product.id)}"></h:commandLink>
+											</h:form>
+											<h5 class="media-heading">
+												<a href="../public/showProd.xhtml?prodId=#{product.id}">
+													#{product.name}</a>
+
+											</h5>
+											R$ #{product.price}
+										</div>
+									</div>
+
+								</li>
+
+							</ui:repeat>
+							<li class="list-group-item"><a href="#">Valor Total R$
+									#{newPedido.form.total}</a></li>
+
+							<li><a href="../public/closePed.xhtml">Close Order</a></li>
+						</ul></li>
+
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Categorias<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<ui:repeat var="category" value="#{showCategory.form.categories}">
+								<li><a href="listCat.xhtml?catId=#{category.id}">
+										#{category.name}</a></li>
+								<li class="divider"></li>
+							</ui:repeat>
+						</ul></li>
+
+
+
+
+
+
+				</ul>
+				<h:form class="navbar-form navbar-right">
+					<div class="form-group">
+						<h:inputText class="form-control"
+							value="#{searchProd.options.name}" p:placeholder="Search"
+							p:type="search"></h:inputText>
+					</div>
+					<div class="form-group">
+						<h:button class="btn btn-default btn-sm" value="Submit"
+							action="#{shearchProd.search}" outcome="SearchName"></h:button>
+					</div>
+				</h:form>
+
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+</composite:implementation>
+</html>

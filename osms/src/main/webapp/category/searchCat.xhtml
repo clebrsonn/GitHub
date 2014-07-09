@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="../templateAdmin.xhtml">
+
+	<ui:define name="title">Insert title here</ui:define>
+
+	<ui:define name="content">
+
+		<h1 class="page-header">Search the Category</h1>
+
+		<h:form id="searchCat" styleClass="form-horizontal">
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Nome da categoria:</label>
+				<div class="col-sm-6">
+					<h:inputText id="name" styleClass="form-control"
+						value="#{searchCat.options.name}"></h:inputText>
+				</div>
+				<h:message for="name" />
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Descrição da
+					categoria:</label>
+				<div class="col-sm-6">
+					<h:inputTextarea styleClass="form-control" rows="10"
+						value="#{searchCat.options.description}" />
+
+				</div>
+			</div>
+
+			<div class="col-sm-offset-2" style="padding-bottom: 10px">
+				<h:commandLink
+					styleClass="btn btn-lg btn-success glyphicon glyphicon-search"
+					title="Search" action="#{searchCat.search}"> Search</h:commandLink>
+			</div>
+
+			<h:messages></h:messages>
+		</h:form>
+		<h:form>
+			<h:dataTable value="#{searchCat.result}" var="category"
+				styleClass="table table-striped table-bordered table-condensed table-hover"
+				columnClasses="col-sm-6, col-sm-6 "
+				rendered="#{searchCat.result.isEmpty()==false}">
+				<h:column>
+					<f:facet name="header">
+						Name
+					</f:facet>
+				#{category.name}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						Description
+					</f:facet>
+				
+				#{category.description}
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						Id
+					</f:facet>
+				
+				#{category.id}
+				</h:column>
+				
+				<h:column>
+
+					<h:commandLink
+						styleClass="btn btn-primary glyphicon glyphicon-pencil"
+						title="Update" action="#{searchCat.update(category)}" />
+				</h:column>
+
+				<h:column>
+					<h:commandLink
+						styleClass="btn btn-danger glyphicon glyphicon-trash"
+						title="Delete" action="#{searchCat.delete(category)}"></h:commandLink>
+				</h:column>
+			</h:dataTable>
+
+
+			<center>
+				<ul class="pagination">
+					<ui:repeat value="#{searchCat.pages}" var="page">
+						<li class="#{searchCat.getPageClass(page)}"><h:commandLink
+								value="#{page}" action="#{searchCat.goToPage(page)}">
+								<f:ajax render="@form"></f:ajax>
+							</h:commandLink></li>
+					</ui:repeat>
+				</ul>
+			</center>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<composite:interface>
+	<composite:attribute name="form" />
+	<composite:attribute name="disabled" default="false" />
+
+	<composite:facet name="buttons"></composite:facet>
+
+</composite:interface>
+
+<composite:implementation>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Categoria-Pai</label>
+
+		<div class="col-sm-10">
+			<h:selectOneMenu styleClass="form-control"
+				value="#{cc.attrs.form.catId}" disabled="#{cc.attrs.disabled}">
+				
+				<f:selectItem  itemValue="#{null}" itemLabel="Sem Categoria"></f:selectItem>
+
+				<f:selectItems value="#{cc.attrs.form.categories}" var="category"
+					itemLabel="#{category.catPai.catPai.name} - #{category.catPai.name} -> #{category.name}" itemValue="#{category.id}"/>
+			</h:selectOneMenu>
+
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Nome da categoria:</label>
+		<div class="col-sm-6">
+			<h:inputText id="name" styleClass="form-control"
+				value="#{cc.attrs.form.category.name}"
+				disabled="#{cc.attrs.disabled}" p:placeholder="Nome da categoria" p:required="true"/>
+		</div>
+		<h:messages></h:messages>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Descrição da categoria:</label>
+		<div class="col-sm-6">
+			<h:inputTextarea styleClass="form-control" rows="10" id="description"
+				value="#{cc.attrs.form.category.description}"
+				disabled="#{cc.attrs.disabled}"
+				p:placeholder="Description of category"></h:inputTextarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-5">
+			<div class="btn-toolbar">
+				<composite:renderFacet name="buttons"></composite:renderFacet>
+			</div>
+		</div>
+	</div>
+
+</composite:implementation>
+</html>

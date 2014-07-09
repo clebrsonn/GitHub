@@ -1,0 +1,2 @@
+Url da loja: localhost:8080/osms/faces/public/listProd.xhtml
+Url do painel de administração: localhost:8080/osms/faces/admin/dash.xhtml

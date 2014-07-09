@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="../templateAdmin.xhtml">
+
+	<ui:define name="title">Cadastro de Produtos</ui:define>
+	<ui:define name="content">
+		<h1 class="page-header">Cadastro de Produtos</h1>
+		<h:form id = "form" styleClass="form-horizontal">
+			<osms:formProd id="prod" form="#{newProduct.form}">
+
+				<f:facet name="buttons">
+
+					<h:commandButton class="btn btn-primary" value="Save"
+						action="#{newProduct.save}" />
+
+				</f:facet>
+			</osms:formProd>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

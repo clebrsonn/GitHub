@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<f:metadata>
+	<f:viewParam name="catId" value="#{showProducts.catId}" />
+</f:metadata>
+
+
+
+<ui:composition template="/template.xhtml">
+
+
+
+	<ui:define name="title">OSMS</ui:define>
+
+	<ui:define name="content">
+		<osms:navBarHeaderPublic></osms:navBarHeaderPublic>
+
+		<h1 class="page-header">Produtos por categoria</h1>
+
+		<div class="row col-sm-9">
+
+			<div value="#{showCategory.setCatPaiId(showProducts.catId)}">
+				<ul class="nav nav-tabs nav-justified" role="tablist">
+					<li><a href="../public/listProd.xhtml"> Home</a></li>
+					<ui:repeat var="category" value="#{showCategory.subCat}">
+						<li class="active"><a href="#">#{category.catPai.name}</a></li>
+						<li><a href="listCat.xhtml?catId=#{category.id}">
+								#{category.name}</a></li>
+					</ui:repeat>
+				</ul>
+			</div>
+
+
+
+			<h:dataTable value="#{showProducts.products}" var="product"
+				styleClass="table-striped table-bordered table-condensed table-hover"
+				columnClasses="col-sm-3, col-sm-4, col-sm-5, col-sm-4 "
+				rendered="#{showProducts.products.isEmpty()==false}">
+
+				<h:column>
+					<f:facet name="header">
+						Image
+					</f:facet>
+					<a href="showProd.xhtml?prodId=#{product.id}">
+						<div class="thumbnail">
+							<img src="#{product.image}" alt="..."> </img>
+						</div>
+					</a>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						Name
+					</f:facet>
+					<a href="showProd.xhtml?prodId=#{product.id}">#{product.name}</a>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						Description
+					</f:facet>
+				#{product.description}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						Price
+					</f:facet>
+				#{product.price}
+				</h:column>
+			</h:dataTable>
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>
+</html>
