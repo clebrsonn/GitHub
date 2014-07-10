@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,6 +24,7 @@ public class Pedido implements Cloneable {
 	private Date dateBuy;
 	private Integer id;
 	private List<Product> products;
+	private User user;
 
 	public Pedido() {
 		products = new ArrayList<>();
@@ -57,6 +59,17 @@ public class Pedido implements Cloneable {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	@ManyToOne
+	@JoinColumn(name = "USE_ID", nullable = true)
+	public User getUser() {
+		return user;
 	}
 
 	@Override
