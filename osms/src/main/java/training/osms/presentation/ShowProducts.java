@@ -113,13 +113,6 @@ public class ShowProducts {
 		options.setStartPosition(startPosition);
 		options.setMaxResults(RESULTS_PER_PAGE);
 		products = controller.searchProd(options);
-		if (products.isEmpty()) {
-			FacesMessage message = new FacesMessage();
-			message.setSummary("A sua pesquisa não retornou nenhum resultado");
-			message.setSeverity(FacesMessage.SEVERITY_INFO);
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, message);
-		} 
 	}
 
 	public String getPageClass(int page) {

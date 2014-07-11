@@ -23,6 +23,10 @@ public class ProdDao extends EntityDao<Product, ProdSearchOptions> {
 			predicate.append(" and product.category.id = :catId");
 		}
 
+		if (options.getUseId() != null) {
+			predicate.append(" and product.user.id = :userId");
+		}
+
 		if (options.getName() != null && options.getName().length() > 0) {
 			predicate.append(" and upper(product.name) like :productName");
 
@@ -35,10 +39,10 @@ public class ProdDao extends EntityDao<Product, ProdSearchOptions> {
 		if (options.getPrice() > 0) {
 			predicate.append(" and product.price <= :productPrice");
 		}
-		
+
 		if (options.getPriceIni() > 0) {
 			predicate.append(" and product.price >= :productPriceIni");
-		}		
+		}
 		if (options.getProdId() != null && options.getProdId() > 0) {
 			predicate.append(" and product.id = :productId");
 		}
@@ -51,11 +55,16 @@ public class ProdDao extends EntityDao<Product, ProdSearchOptions> {
 			query.setParameter("catId", options.getCatId());
 		}
 
+		if (options.getUseId() != null) {
+			query.setParameter("userId", options.getUseId());
+		}
+
 		if (options.getName() != null && options.getName().length() > 0) {
 			query.setParameter("productName", "%"
 					+ options.getName().toUpperCase() + "%");
 
 		}
+
 		if (options.getDescription() != null
 				&& options.getDescription().length() > 0) {
 			query.setParameter("productDescription", "%"
@@ -64,12 +73,11 @@ public class ProdDao extends EntityDao<Product, ProdSearchOptions> {
 		if (options.getPrice() > 0) {
 			query.setParameter("productPrice", options.getPrice());
 		}
-		
-		
+
 		if (options.getPriceIni() > 0) {
 			query.setParameter("productPriceIni", options.getPriceIni());
 		}
-		
+
 		if (options.getProdId() != null && options.getProdId() > 0) {
 			query.setParameter("productId", options.getProdId());
 		}

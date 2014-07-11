@@ -65,9 +65,8 @@ public class Pedido implements Cloneable {
 		this.user = user;
 	}
 
-
 	@ManyToOne
-	@JoinColumn(name = "USE_ID", nullable = true)
+	@JoinColumn(name = "USE_ID")
 	public User getUser() {
 		return user;
 	}

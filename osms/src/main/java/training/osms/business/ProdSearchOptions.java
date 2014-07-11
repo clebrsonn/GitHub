@@ -27,6 +27,7 @@ public class ProdSearchOptions extends AbstractEntitySearchOptions {
 	private boolean desc;
 	private Integer catId;
 	private Integer prodId;
+	private Integer useId;
 
 	public ProdSearchOptions() {
 		order = Order.NAME;
@@ -94,5 +95,13 @@ public class ProdSearchOptions extends AbstractEntitySearchOptions {
 
 	public double getPriceIni() {
 		return priceIni;
+	}
+
+	public void setUseId(Integer useId) {
+		this.useId = useId;
+	}
+
+	public Integer getUseId() {
+		return useId;
 	}
 }
