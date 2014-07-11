@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -26,6 +27,9 @@ public class Product implements Cloneable {
 
 	private Category category;
 	private List<Pedido> pedidos;
+
+	private User user;
+	private List<Avaliacao> avaliacao;
 
 	@Column(name = "PRO_NAME")
 	public String getName() {
@@ -48,11 +52,11 @@ public class Product implements Cloneable {
 
 	@Column(name = "PRO_IMAGE")
 	public String getImage() {
-		if(image == null)
+		if (image == null)
 			return "http://placehold.it/235x151";
 		else
 			return image;
-	
+
 	}
 
 	public void setImage(String image) {
@@ -105,6 +109,25 @@ public class Product implements Cloneable {
 	@Column(name = "PRO_VISIBLE")
 	public boolean getVisible() {
 		return visible;
+	}
+
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	@OneToMany(mappedBy = "product")
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "USE_ID")
+	public User getUser() {
+		return user;
 	}
 
 	public Product clone() {
