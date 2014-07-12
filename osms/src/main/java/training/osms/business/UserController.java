@@ -47,7 +47,7 @@ public class UserController {
 
 	@Transactional
 	public void updateUser(User user) {
-		User databaseUser = dao.searchOneEntity(user.getName());
+		User databaseUser = dao.searchOneEntity(user.getId());
 		if (databaseUser == null) {
 			dao.updateEntity(user);
 		} else {

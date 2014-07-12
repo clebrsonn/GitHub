@@ -47,7 +47,7 @@ public class CatController {
 
 	@Transactional
 	public void updateCategory(Category category) {
-		Category databaseCat = dao.searchOneEntity(category.getName());
+		Category databaseCat = dao.searchOneEntity(category.getId());
 		if (databaseCat == null) {
 			dao.updateEntity(category);
 		} else {

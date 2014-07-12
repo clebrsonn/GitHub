@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,7 +20,6 @@ public class User {
 	private List<Product> products;
 	private List<Pedido> pedidos;
 
-	private List<Product> prodAvaliate;
 	private List<Avaliacao> avaliacao;
 
 	@Id
@@ -73,22 +71,13 @@ public class User {
 		return pedidos;
 	}
 
-	 public void setAvaliacao(List<Avaliacao> avaliacao) {
-	 this.avaliacao = avaliacao;
-	 }
-	
-	 @OneToMany(mappedBy = "user")
-	 public List<Avaliacao> getAvaliacao() {
-		return avaliacao;
-	 }
-
-	public void setProdAvaliate(List<Product> prodAvaliate) {
-		this.prodAvaliate = prodAvaliate;
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 
-	@ManyToMany
-	public List<Product> getProdAvaliate() {
-		return prodAvaliate;
+	@OneToMany(mappedBy = "user")
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
 	}
 
 	@Override

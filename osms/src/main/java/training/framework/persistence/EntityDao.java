@@ -91,18 +91,23 @@ public abstract class EntityDao<Entity, EntitySearchOptions extends AbstractEnti
 			return result.get(0);
 		}
 	}
-
-	public Entity searchOneEntity(Integer entity) {
-		TypedQuery<Entity> query = manager.createQuery(createQueryOne(),
-				entityClass);
-		query.setParameter("entityName", entity);
-		List<Entity> result = query.getResultList();
-		if (result.isEmpty()) {
-			return null;
-		} else {
-			return result.get(0);
-		}
+	
+	
+	public Entity searchOneEntity(Integer id) {		
+		return manager.find(entityClass, id);
 	}
+
+//	public Entity searchOneEntity(Integer entity) {
+//		TypedQuery<Entity> query = manager.createQuery(createQueryOne(),
+//				entityClass);
+//		query.setParameter("entityName", entity);
+//		List<Entity> result = query.getResultList();
+//		if (result.isEmpty()) {
+//			return null;
+//		} else {
+//			return result.get(0);
+//		}
+//	}
 
 	protected abstract String createQueryOne();
 }

@@ -35,7 +35,7 @@ public class UserSearchOptions extends AbstractEntitySearchOptions {
 		this.order = order;
 	}
 
-	public boolean isDesc() {
+	public boolean getDesc() {
 		return desc;
 	}
 
