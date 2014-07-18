@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.PedController;
+import training.osms.business.pedido.PedController;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)

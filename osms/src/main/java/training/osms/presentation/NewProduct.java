@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.ProdController;
+import training.osms.business.product.ProdController;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_REQUEST)

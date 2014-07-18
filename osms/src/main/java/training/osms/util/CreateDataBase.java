@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import training.osms.business.Category;
+import training.osms.business.category.Category;
 
 public class CreateDataBase {
 

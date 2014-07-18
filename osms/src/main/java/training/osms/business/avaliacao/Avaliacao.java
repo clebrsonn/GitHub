@@ -1,4 +1,4 @@
-package training.osms.business;
+package training.osms.business.avaliacao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import training.osms.business.product.Product;
+import training.osms.business.user.User;
 
 @Entity
 @Table(name = "AVA_AVALIACAO")
@@ -40,7 +43,7 @@ public class Avaliacao {
 	}
 
 	@Column(name = "AVA_AVALIACAO")
-	@Size(max = 1000)
+	@Size(max = 10000)
 	public String getAvaliacao() {
 		return avaliacao;
 	}

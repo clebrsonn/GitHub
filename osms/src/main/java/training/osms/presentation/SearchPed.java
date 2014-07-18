@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import training.osms.business.PedController;
-import training.osms.business.PedSearchOptions;
-import training.osms.business.Pedido;
+import training.osms.business.pedido.PedController;
+import training.osms.business.pedido.PedSearchOptions;
+import training.osms.business.pedido.Pedido;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)

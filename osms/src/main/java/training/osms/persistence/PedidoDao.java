@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.PedSearchOptions;
-import training.osms.business.Pedido;
+import training.osms.business.pedido.PedSearchOptions;
+import training.osms.business.pedido.Pedido;
 
 @Component
 public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {

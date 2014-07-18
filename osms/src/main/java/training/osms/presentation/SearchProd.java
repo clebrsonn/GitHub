@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.ProdController;
-import training.osms.business.ProdSearchOptions;
-import training.osms.business.Product;
+import training.osms.business.product.ProdController;
+import training.osms.business.product.ProdSearchOptions;
+import training.osms.business.product.Product;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)

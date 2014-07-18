@@ -7,9 +7,9 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import training.osms.business.CatController;
-import training.osms.business.CatSearchOptions;
-import training.osms.business.Category;
+import training.osms.business.category.CatController;
+import training.osms.business.category.CatSearchOptions;
+import training.osms.business.category.Category;
 
 public class CatForm {
 

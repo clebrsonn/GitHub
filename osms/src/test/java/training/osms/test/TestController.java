@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import training.framework.business.BusinessException;
-import training.osms.business.CatController;
-import training.osms.business.Category;
+import training.osms.business.category.CatController;
+import training.osms.business.category.Category;
 import training.osms.persistence.CatDao;
 
 public class TestController {

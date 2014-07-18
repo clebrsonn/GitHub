@@ -1,4 +1,4 @@
-package training.osms.business;
+package training.osms.business.user;
 
 import training.framework.business.AbstractEntitySearchOptions;
 

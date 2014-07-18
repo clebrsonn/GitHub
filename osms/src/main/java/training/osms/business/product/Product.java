@@ -1,4 +1,4 @@
-package training.osms.business;
+package training.osms.business.product;
 
 import java.util.List;
 
@@ -13,6 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import training.osms.business.PromoMail;
+import training.osms.business.avaliacao.Avaliacao;
+import training.osms.business.category.Category;
+import training.osms.business.pedido.Pedido;
+import training.osms.business.user.User;
 
 @Entity
 @Table(name = "PRO_PRODUCT")
@@ -30,6 +36,7 @@ public class Product implements Cloneable {
 
 	private User user;
 	private List<Avaliacao> avaliacao;
+	private List<PromoMail> promoMails;
 
 	@Column(name = "PRO_NAME")
 	public String getName() {
@@ -128,6 +135,15 @@ public class Product implements Cloneable {
 	@JoinColumn(name = "USE_ID")
 	public User getUser() {
 		return user;
+	}
+
+	public void setPromoMails(List<PromoMail> promoMails) {
+		this.promoMails = promoMails;
+	}
+
+	@ManyToMany(mappedBy = "productMail")
+	public List<PromoMail> getPromoMails() {
+		return promoMails;
 	}
 
 	public Product clone() {

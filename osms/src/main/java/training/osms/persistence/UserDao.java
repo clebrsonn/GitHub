@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.User;
-import training.osms.business.UserSearchOptions;
+import training.osms.business.user.User;
+import training.osms.business.user.UserSearchOptions;
 
 @Component
 public class UserDao extends EntityDao<User, UserSearchOptions> {

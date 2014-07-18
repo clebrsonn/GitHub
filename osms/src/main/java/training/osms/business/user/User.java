@@ -1,4 +1,4 @@
-package training.osms.business;
+package training.osms.business.user;
 
 import java.util.List;
 
@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import training.osms.business.avaliacao.Avaliacao;
+import training.osms.business.pedido.Pedido;
+import training.osms.business.product.Product;
 
 @Entity
 @Table(name = "USE_USER")

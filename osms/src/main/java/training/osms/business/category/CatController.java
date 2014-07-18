@@ -1,4 +1,4 @@
-package training.osms.business;
+package training.osms.business.category;
 
 import java.util.List;
 

@@ -8,10 +8,10 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import training.osms.business.Pedido;
-import training.osms.business.ProdController;
-import training.osms.business.ProdSearchOptions;
-import training.osms.business.Product;
+import training.osms.business.pedido.Pedido;
+import training.osms.business.product.ProdController;
+import training.osms.business.product.ProdSearchOptions;
+import training.osms.business.product.Product;
 
 public class PedForm {
 
@@ -50,6 +50,7 @@ public class PedForm {
 	public void setProductId(Integer prodId) {
 		if (prodId != null) {
 			for (Product product : products) {
+				System.out.println(pedido.getProducts());
 				if (product.getId().equals(prodId)) {
 					pedido.getProducts().add(product);
 				}

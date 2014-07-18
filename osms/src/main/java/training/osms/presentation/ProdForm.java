@@ -7,19 +7,26 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import training.osms.business.CatController;
-import training.osms.business.CatSearchOptions;
-import training.osms.business.Category;
-import training.osms.business.PedController;
-import training.osms.business.PedSearchOptions;
-import training.osms.business.Pedido;
-import training.osms.business.Product;
+import training.osms.business.PromoMail;
+import training.osms.business.avaliacao.AvaController;
+import training.osms.business.avaliacao.AvaSearchOptions;
+import training.osms.business.avaliacao.Avaliacao;
+import training.osms.business.category.CatController;
+import training.osms.business.category.CatSearchOptions;
+import training.osms.business.category.Category;
+import training.osms.business.pedido.PedController;
+import training.osms.business.pedido.PedSearchOptions;
+import training.osms.business.pedido.Pedido;
+import training.osms.business.product.Product;
 
 public class ProdForm {
 
 	private Product product;
 	private List<Category> categories;
 	private List<Pedido> pedidos;
+
+	private List<Avaliacao> avaliacao;
+	private List<PromoMail> promoMails;
 
 	public ProdForm() {
 
@@ -34,6 +41,9 @@ public class ProdForm {
 		PedController pedController = applicationContext
 				.getBean(PedController.class);
 		pedidos = pedController.searchPedido(new PedSearchOptions());
+
+		AvaController avaController = new AvaController();
+		avaliacao = avaController.searchAvaliacao(new AvaSearchOptions());
 
 		product = new Product();
 
@@ -63,6 +73,22 @@ public class ProdForm {
 		return pedidos;
 	}
 
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setPromoMails(List<PromoMail> promoMails) {
+		this.promoMails = promoMails;
+	}
+
+	public List<PromoMail> getPromoMails() {
+		return promoMails;
+	}
+
 	public void setCatId(Integer catId) {
 		if (catId == null) {
 			product.setCategory(null);
@@ -85,7 +111,5 @@ public class ProdForm {
 			return category.getId();
 		}
 	}
-
-
 
 }

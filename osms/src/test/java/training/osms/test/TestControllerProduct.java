@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import training.framework.business.BusinessException;
-import training.osms.business.ProdController;
-import training.osms.business.Product;
+import training.osms.business.product.ProdController;
+import training.osms.business.product.Product;
 import training.osms.persistence.ProdDao;
 
 public class TestControllerProduct {

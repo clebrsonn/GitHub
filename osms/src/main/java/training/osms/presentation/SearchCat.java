@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.CatController;
-import training.osms.business.CatSearchOptions;
-import training.osms.business.Category;
+import training.osms.business.category.CatController;
+import training.osms.business.category.CatSearchOptions;
+import training.osms.business.category.Category;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)

@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.CatSearchOptions;
-import training.osms.business.Category;
+import training.osms.business.category.CatSearchOptions;
+import training.osms.business.category.Category;
 
 @Component
 public class CatDao extends EntityDao<Category, CatSearchOptions> {

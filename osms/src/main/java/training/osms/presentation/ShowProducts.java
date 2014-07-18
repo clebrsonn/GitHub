@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
 import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import training.osms.business.ProdController;
-import training.osms.business.ProdSearchOptions;
-import training.osms.business.Product;
+import training.osms.business.product.ProdController;
+import training.osms.business.product.ProdSearchOptions;
+import training.osms.business.product.Product;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)
