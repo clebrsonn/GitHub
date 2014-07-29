@@ -1,4 +1,4 @@
-package training.osms.presentation;
+package training.osms.presentation.product;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

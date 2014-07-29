@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import training.osms.business.PromoMail;
+import training.osms.business.PromoMail.PromoMail;
 import training.osms.business.avaliacao.Avaliacao;
 import training.osms.business.category.Category;
 import training.osms.business.pedido.Pedido;
@@ -132,7 +132,7 @@ public class Product implements Cloneable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "USE_ID")
+	@JoinColumn(name = "USE_ID", nullable=false)
 	public User getUser() {
 		return user;
 	}

@@ -1,4 +1,6 @@
-package training.osms.presentation;
+package training.osms.presentation.pedido;
+
+import java.util.Date;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -9,45 +11,48 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.category.CatController;
+import training.osms.business.pedido.PedController;
 
 @Component
-@Scope(WebApplicationContext.SCOPE_REQUEST)
-public class NewCategory {
+@Scope(WebApplicationContext.SCOPE_SESSION)
+public class NewPedido {
 
 	private @Autowired
-	CatController controller;
-	private CatForm form;
+	PedController controller;
+	private PedForm form;
 
-	public NewCategory() {
-		form = new CatForm();
+	public NewPedido() {
+		reset();
 	}
 
-	public void setCategory(CatForm form) {
+	public void reset() {
+		form = new PedForm();
+	}
+
+	public void setForm(PedForm form) {
 		this.form = form;
 	}
 
-	public CatForm getForm() {
+	public PedForm getForm() {
 		return form;
 	}
 
-	public void saveCat() {
-		String clientId;
+	public void save() {
 		FacesMessage message = new FacesMessage();
 		try {
-			controller.save(form.getCategory());
-			clientId = null;
-			message.setSummary("Category was successfully saved");
+			form.getPedido().setDateBuy(new Date());
+			controller.savePedido(form.getPedido());
+			message.setSummary("Pedido was successfully saved");
 			message.setSeverity(FacesMessage.SEVERITY_INFO);
 
+			reset();
+
 		} catch (BusinessException e) {
-			clientId = "form:cat:name";
 			message.setSummary(e.getMessage());
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 		}
-
 		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(clientId, message);
+		context.addMessage(null, message);
 	}
 
 }

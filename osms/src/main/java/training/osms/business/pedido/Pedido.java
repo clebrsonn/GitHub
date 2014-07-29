@@ -69,7 +69,7 @@ public class Pedido implements Cloneable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "USE_ID")
+	@JoinColumn(name = "USE_ID", nullable = false)
 	public User getUser() {
 		return user;
 	}

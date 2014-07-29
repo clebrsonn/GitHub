@@ -60,7 +60,7 @@ public class UserDao extends EntityDao<User, UserSearchOptions> {
 	protected void appendOrder(StringBuilder predicate,
 			UserSearchOptions options) {
 		if (options.getOrder() != null) {
-			predicate.append(" order by category.");
+			predicate.append(" order by user.");
 			predicate.append(options.getOrder().getValue());
 			if (options.getDesc()) {
 				predicate.append(" desc");

@@ -1,4 +1,4 @@
-package training.osms.presentation;
+package training.osms.presentation.pedido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,16 @@ import training.osms.business.pedido.Pedido;
 import training.osms.business.product.ProdController;
 import training.osms.business.product.ProdSearchOptions;
 import training.osms.business.product.Product;
+import training.osms.business.user.User;
+import training.osms.business.user.UserController;
+import training.osms.business.user.UserSearchOptions;
 
 public class PedForm {
 
 	private Pedido pedido;
 	private List<Product> products;
 	private double total;
+	private List<User> users;
 
 	public PedForm() {
 		pedido = new Pedido();
@@ -28,6 +32,11 @@ public class PedForm {
 		ProdController controller = applicationContext
 				.getBean(ProdController.class);
 		products = controller.searchProd(new ProdSearchOptions());
+
+		UserController userController = applicationContext
+				.getBean(UserController.class);
+		users = userController.searchUser(new UserSearchOptions());
+
 	}
 
 	public void setPedido(Pedido pedido) {
@@ -50,7 +59,7 @@ public class PedForm {
 	public void setProductId(Integer prodId) {
 		if (prodId != null) {
 			for (Product product : products) {
-				System.out.println(pedido.getProducts());
+				// System.out.println(pedido.getProducts());
 				if (product.getId().equals(prodId)) {
 					pedido.getProducts().add(product);
 				}
@@ -94,6 +103,38 @@ public class PedForm {
 			total = total + product.getPrice();
 		}
 		return total;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<User> getUsers() {
+		//System.out.println(users);
+		return users;
+	}
+
+	public void setUserId(Integer userId) {
+		if (userId == null) {
+			pedido.setUser(null);
+
+		} else {
+			for (User user : users) {
+				if (user.getId().equals(userId)) {
+					pedido.setUser(user);
+					break;
+				}
+			}
+		}
+	}
+
+	public Integer getUserId() {
+		User user = pedido.getUser();
+		if (user == null) {
+			return null;
+		} else {
+			return user.getId();
+		}
 	}
 
 }

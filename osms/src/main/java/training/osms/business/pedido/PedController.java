@@ -13,29 +13,34 @@ import training.osms.persistence.PedidoDao;
 @Component
 public class PedController {
 
-	private @Autowired PedidoDao dao;
-	
+	private @Autowired
+	PedidoDao dao;
+
 	public void setDao(PedidoDao dao) {
 		this.dao = dao;
 	}
-	
+
 	@Transactional
 	public void savePedido(Pedido pedido) {
-		if (dao.containsEntity(pedido.getId())) {
-			throw new BusinessException("There is a pedido named " + pedido.getId() + " already");
+		// if (dao.containsEntity(pedido.getId())) {
+		// throw new BusinessException("There is a pedido of id: " +
+		// pedido.getId() + " already");
+		// }
+		if (pedido.getUser() == null) {
+			throw new BusinessException("There is a pedido need a user");
 		} else {
 			dao.insertEntity(pedido);
 		}
-	}	
-	
+	}
+
 	public Integer searchPedidoCount(PedSearchOptions options) {
 		return dao.searchEntityCount(options);
 	}
-	
+
 	public List<Pedido> searchPedido(PedSearchOptions options) {
 		return dao.searchEntity(options);
 	}
-	
+
 	@Transactional
 	public void updatePedido(Pedido pedido) {
 		Pedido databasePedido = dao.searchOneEntity(pedido.getId());
@@ -45,27 +50,25 @@ public class PedController {
 			if (pedido.getId().equals(databasePedido.getId())) {
 				dao.updateEntity(pedido);
 			} else {
-				throw new BusinessException("There is a pedido named " + pedido.getId() + " already");
+				throw new BusinessException("There is a pedido named "
+						+ pedido.getId() + " already");
 			}
 		}
 	}
-	
+
 	@Transactional
 	public void deletePedido(Pedido pedido) {
 		for (Product product : pedido.getProducts()) {
-/*			
-			boolean removed;
-			do {
-				removed = product.getPedidos().remove(pedido);
-			} while (removed);
-*/			
-			
+			/*
+			 * boolean removed; do { removed =
+			 * product.getPedidos().remove(pedido); } while (removed);
+			 */
+
 			while (product.getPedidos().contains(pedido)) {
 				product.getPedidos().remove(pedido);
-			}			
+			}
 		}
 		dao.deleteEntity(pedido);
-	}		
+	}
 
-	
 }

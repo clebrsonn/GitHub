@@ -22,6 +22,8 @@ public class ProdController {
 	public void saveProd(Product prod) {
 		if (prod.getPrice() < 0) {
 			throw new BusinessException("the price can not be less than zero");
+		} else if (prod.getUser() == null) {
+			throw new BusinessException("Select a User");
 		} else {
 			dao.insertEntity(prod);
 		}

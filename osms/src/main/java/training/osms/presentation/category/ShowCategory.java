@@ -1,4 +1,4 @@
-package training.osms.presentation;
+package training.osms.presentation.category;
 
 import java.util.List;
 

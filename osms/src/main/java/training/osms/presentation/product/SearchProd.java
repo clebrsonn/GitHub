@@ -1,4 +1,4 @@
-package training.osms.presentation;
+package training.osms.presentation.product;
 
 import java.util.ArrayList;
 import java.util.Iterator;
