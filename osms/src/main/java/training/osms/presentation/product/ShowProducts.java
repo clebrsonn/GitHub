@@ -15,7 +15,7 @@ import training.osms.business.product.ProdSearchOptions;
 import training.osms.business.product.Product;
 
 @Component
-@Scope(WebApplicationContext.SCOPE_SESSION)
+@Scope(WebApplicationContext.SCOPE_REQUEST)
 public class ShowProducts {
 
 	private static final int RESULTS_PER_PAGE = 9;
@@ -29,9 +29,11 @@ public class ShowProducts {
 	private ProdSearchOptions options;
 	private int prodId;
 	private int catId;
+	//private List<Avaliacao> avaliacoes;
 
 	public ShowProducts() {
 		products = null;
+		//avaliacoes = new ;
 		reset();
 	}
 
@@ -150,6 +152,19 @@ public class ShowProducts {
 		return catId;
 	}
 
+//	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+//		this.avaliacoes = avaliacoes;
+//	}
+//
+//	public List<Avaliacao> getAvaliacoes() {
+//		AvaController controllerAva = new AvaController();
+//		AvaSearchOptions optionsAva = new AvaSearchOptions();
+//		optionsAva.setProdId(prodId);
+//		avaliacoes = controllerAva.searchAvaliacao(optionsAva);
+//
+//		return avaliacoes;
+//	}
+
 	public String getProdBody() {
 		String escapedBody = StringEscapeUtils.escapeHtml(product
 				.getDescription());
@@ -161,12 +176,6 @@ public class ShowProducts {
 		body.append(escapedBody);
 		body.append("</p>");
 		return body.toString();
-
-		/*
-		 * for (int i = 0; i < escapedBody.length(); ++i) { char c =
-		 * escapedBody.charAt(i); if (c == '\n' || c == '\r') {
-		 * body.append("</p><p>"); } else { body.append(c); } }
-		 */
 	}
 
 }

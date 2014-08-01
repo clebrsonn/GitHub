@@ -18,18 +18,18 @@
 		<osms:navBarHeaderPublic></osms:navBarHeaderPublic>
 
 		<div class="row col-sm-9">
-		<osms:breadCrumb></osms:breadCrumb>
+			<osms:breadCrumb></osms:breadCrumb>
 
 
-			
-				<h:form styleClass="form-group">
 
-					<h:commandLink
-						class="glyphicon glyphicon-shopping-cart btn btn-info pull-right"
-						value="Adicionar ao Carrinho"
-						action="#{newPedido.form.setProductId(showProducts.prodId)}"></h:commandLink>
-				</h:form>
-			
+			<h:form styleClass="form-group">
+
+				<h:commandLink
+					class="glyphicon glyphicon-shopping-cart btn btn-info pull-right"
+					value="Adicionar ao Carrinho"
+					action="#{newPedido.form.setProductId(showProducts.prodId)}"></h:commandLink>
+			</h:form>
+
 
 			<div class="form-group" style="padding-top: 40px;" align="center">
 
@@ -40,7 +40,34 @@
 				<h:outputText value="#{showProducts.prodBody}" escape="false">
 				</h:outputText>
 			</div>
+
+			<div>
+				<h:form>
+					<div class="form-group col-sm-12 col-sm-offset-2">
+						<div class="col-sm-5">
+							<h:selectOneMenu styleClass="form-control"
+								value="#{newAvaliacao.form.prodId}">
+								<f:selectItem itemValue="#{showProducts.prodId}"
+									itemLabel="#{showProducts.product.name}"></f:selectItem>
+							</h:selectOneMenu>
+						</div>
+					</div>
+
+					<osms:formAva form="#{newAvaliacao.form}">
+						<f:facet name="buttons">
+							<h:commandButton class="btn btn-default" value="Salvar"
+								action="#{newAvaliacao.saveAva}" />
+						</f:facet>
+
+					</osms:formAva>
+				</h:form>
+			</div>
+			<div class="col-sm-12">
+				<osms:comments></osms:comments>
+			</div>
+
 		</div>
+
 
 	</ui:define>
 </ui:composition>
