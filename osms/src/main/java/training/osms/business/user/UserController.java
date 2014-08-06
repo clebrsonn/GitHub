@@ -25,16 +25,8 @@ public class UserController {
 			throw new BusinessException("There is a user named "
 					+ user.getName() + " already");
 		} else {
-			User databaseUser = dao.searchOneEntity(user.getId());
-			if (user.getEmail().equals(databaseUser.getEmail())) {
-				throw new BusinessException("There is a email named "
-						+ user.getEmail() + " already");
-			}
+			dao.insertEntity(user);
 
-			else {
-				dao.insertEntity(user);
-
-			}
 		}
 	}
 
