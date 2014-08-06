@@ -24,14 +24,17 @@ public class UserController {
 		if (dao.containsEntity(user.getName())) {
 			throw new BusinessException("There is a user named "
 					+ user.getName() + " already");
-		} else if (dao.containsEntity(user.getEmail())) {
-			throw new BusinessException("There is a email named "
-					+ user.getEmail() + " already");
-		}
+		} else {
+			User databaseUser = dao.searchOneEntity(user.getId());
+			if (user.getEmail().equals(databaseUser.getEmail())) {
+				throw new BusinessException("There is a email named "
+						+ user.getEmail() + " already");
+			}
 
-		else {
-			dao.insertEntity(user);
+			else {
+				dao.insertEntity(user);
 
+			}
 		}
 	}
 
@@ -70,7 +73,7 @@ public class UserController {
 		return dao.searchEntityCount(options);
 	}
 
-	public User searchOneUser(Integer catId) {
-		return dao.searchOneEntity(catId);
+	public User searchOneUser(Integer userId) {
+		return dao.searchOneEntity(userId);
 	}
 }
