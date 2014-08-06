@@ -67,10 +67,10 @@ public class UserDao extends EntityDao<User, UserSearchOptions> {
 			}
 		}
 	}
-
+	
 	@Override
-	protected String createQueryOne() {
-		String query = "select user from User user where upper(user.name) = :entityName";
+	protected String createQueryOne() {		
+		String query = "select user from User user where upper(user.name)= :entityName";
 		return query;
 	}
 }

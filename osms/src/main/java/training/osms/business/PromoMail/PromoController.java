@@ -32,21 +32,21 @@ public class PromoController {
 		}
 	}
 
-	public Integer searchProdCount(PromoSearchOptions options) {
+	public Integer searchPromoCount(PromoSearchOptions options) {
 		return dao.searchEntityCount(options);
 	}
 
-	public List<PromoMail> searchProd(PromoSearchOptions options) {
+	public List<PromoMail> searchPromo(PromoSearchOptions options) {
 		return dao.searchEntity(options);
 	}
 
 	@Transactional
-	public void updateProd(PromoMail promo) {
+	public void updatePromo(PromoMail promo) {
 		dao.updateEntity(promo);
 	}
 
 	@Transactional
-	public void deleteProd(PromoMail promo) {
+	public void deletePromo(PromoMail promo) {
 		dao.deleteEntity(promo);
 	}
 

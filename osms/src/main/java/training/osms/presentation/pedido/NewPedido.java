@@ -55,5 +55,4 @@ public class NewPedido {
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.addMessage(null, message);
 	}
-
 }

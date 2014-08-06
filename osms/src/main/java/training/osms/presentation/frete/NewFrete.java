@@ -1,4 +1,4 @@
-package training.osms.presentation.user;
+package training.osms.presentation.frete;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -9,49 +9,56 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.user.UserController;
+import training.osms.business.frete.FreController;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_REQUEST)
-public class NewUser {
+public class NewFrete {
 
 	private @Autowired
-	UserController controller;
-	private UserForm form;
+	FreController controller;
+	private FreteForm form;
 
-	public NewUser() {
+	public NewFrete() {
 		reset();
 	}
 
 	public void reset() {
-		form = new UserForm();
+		form = new FreteForm();
 	}
 
-	public UserForm getForm() {
+	public FreController getController() {
+		return controller;
+	}
+
+	public void setController(FreController controller) {
+		this.controller = controller;
+	}
+
+	public FreteForm getForm() {
 		return form;
 	}
 
-	public void setForm(UserForm form) {
+	public void setForm(FreteForm form) {
 		this.form = form;
 	}
 
-	public void saveUser() {
-		String clientId;
+	public void savePromo() {
 		FacesMessage message = new FacesMessage();
 		try {
-			controller.save(form.getUser());
-			clientId = null;
-			message.setSummary("User was successfully saved");
+			controller.saveFrete(form.getFrete());
+
+			message.setSummary("Frete was successfully saved");
 			message.setSeverity(FacesMessage.SEVERITY_INFO);
 			reset();
+
 		} catch (BusinessException e) {
-			clientId = "form:user:name";
+
 			message.setSummary(e.getMessage());
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 		}
 
 		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(clientId, message);
+		context.addMessage(null, message);
 	}
-
 }

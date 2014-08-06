@@ -29,11 +29,11 @@ public class ShowProducts {
 	private ProdSearchOptions options;
 	private int prodId;
 	private int catId;
-	//private List<Avaliacao> avaliacoes;
+
+	// private List<Avaliacao> avaliacoes;
 
 	public ShowProducts() {
 		products = null;
-		//avaliacoes = new ;
 		reset();
 	}
 
@@ -152,18 +152,18 @@ public class ShowProducts {
 		return catId;
 	}
 
-//	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-//		this.avaliacoes = avaliacoes;
-//	}
-//
-//	public List<Avaliacao> getAvaliacoes() {
-//		AvaController controllerAva = new AvaController();
-//		AvaSearchOptions optionsAva = new AvaSearchOptions();
-//		optionsAva.setProdId(prodId);
-//		avaliacoes = controllerAva.searchAvaliacao(optionsAva);
-//
-//		return avaliacoes;
-//	}
+	// public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+	// this.avaliacoes = avaliacoes;
+	// }
+	//
+	// public List<Avaliacao> getAvaliacoes() {
+	// AvaController controllerAva = new AvaController();
+	// AvaSearchOptions optionsAva = new AvaSearchOptions();
+	// optionsAva.setProdId(prodId);
+	// avaliacoes = controllerAva.searchAvaliacao(optionsAva);
+	//
+	// return avaliacoes;
+	// }
 
 	public String getProdBody() {
 		String escapedBody = StringEscapeUtils.escapeHtml(product

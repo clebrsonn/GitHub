@@ -23,19 +23,26 @@ public class PedForm {
 	private double total;
 	private List<User> users;
 
+	// private List<Frete> fretes;
+
 	public PedForm() {
 		pedido = new Pedido();
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ApplicationContext applicationContext = FacesContextUtils
 				.getWebApplicationContext(facesContext);
 
+		UserController userController = applicationContext
+				.getBean(UserController.class);
+
+		users = userController.searchUser(new UserSearchOptions());
+
 		ProdController controller = applicationContext
 				.getBean(ProdController.class);
 		products = controller.searchProd(new ProdSearchOptions());
 
-		UserController userController = applicationContext
-				.getBean(UserController.class);
-		users = userController.searchUser(new UserSearchOptions());
+		// FreController freteController = applicationContext
+		// .getBean(FreController.class);
+		// fretes = freteController.searchFrete(new FreSearchOptions());
 
 	}
 
@@ -55,6 +62,14 @@ public class PedForm {
 		return products;
 
 	}
+
+	// public void setFretes(List<Frete> fretes) {
+	// this.fretes = fretes;
+	// }
+	//
+	// public List<Frete> getFretes() {
+	// return fretes;
+	// }
 
 	public void setProductId(Integer prodId) {
 		if (prodId != null) {
@@ -92,8 +107,8 @@ public class PedForm {
 		}
 		return prodIds;
 	}
-	
-	public Integer getTotalItens(){
+
+	public Integer getTotalItens() {
 		return pedido.getProducts().size();
 	}
 
@@ -114,7 +129,7 @@ public class PedForm {
 	}
 
 	public List<User> getUsers() {
-		//System.out.println(users);
+		// System.out.println(users);
 		return users;
 	}
 
@@ -140,5 +155,4 @@ public class PedForm {
 			return user.getId();
 		}
 	}
-
 }

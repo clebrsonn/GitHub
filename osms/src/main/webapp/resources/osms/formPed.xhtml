@@ -38,6 +38,24 @@
 	</div>
 
 	<div class="form-group">
+		<label class="col-sm-2 control-label">Tipo de Frete</label>
+
+		<div class="col-sm-10">
+			<h:selectOneMenu disabled="#{cc.attrs.disabled}"
+				styleClass="form-control" value="#{cc.attrs.form.freteId}">
+
+				<f:selectItems value="#{cc.attrs.form.fretes}" var="frete"
+					itemLabel="#{frete.tipoFrete}" itemValue="#{frete.id}">
+
+				</f:selectItems>
+
+			</h:selectOneMenu>
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-5">
 			<div class="btn-toolbar">
 				<composite:renderFacet name="buttons"></composite:renderFacet>
