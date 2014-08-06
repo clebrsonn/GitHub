@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import training.osms.business.frete.Frete;
 import training.osms.business.product.Product;
 import training.osms.business.user.User;
 
@@ -28,6 +29,7 @@ public class Pedido implements Cloneable {
 	private Integer id;
 	private List<Product> products;
 	private User user;
+	private Frete frete;
 
 	public Pedido() {
 		products = new ArrayList<>();
@@ -72,6 +74,16 @@ public class Pedido implements Cloneable {
 	@JoinColumn(name = "USE_ID", nullable = false)
 	public User getUser() {
 		return user;
+	}
+
+	public void setFrete(Frete frete) {
+		this.frete = frete;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "FRE_ID", nullable=false)
+	public Frete getFrete() {
+		return frete;
 	}
 
 	@Override

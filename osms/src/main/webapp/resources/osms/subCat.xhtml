@@ -16,15 +16,13 @@
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h4 class="panel-title">
-					Sub-Categorias
-					</h4>
+					<h4 class="panel-title" align="center">Categorias</h4>
 				</div>
 			</div>
 			<ui:repeat var="category" value="#{showCategory.form.categories}">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h4 class="panel-title">
+						<h4 class="panel-title" align="center">
 							<a data-toggle="collapse" data-parent="#accordion"
 								href="##{category.id}"> #{category.name} </a>
 						</h4>
@@ -32,7 +30,8 @@
 					<div id="#{category.id}" class="panel-collapse collapse">
 						<div class="panel-body"
 							value="#{showCategory.setCatPaiId(category.id)}">
-
+							<li><a href="listCat.xhtml?catId=#{category.id}">#{category.name}
+							</a></li>
 
 							<ui:repeat var="sub" value="#{showCategory.subCat}">
 
@@ -45,7 +44,18 @@
 			</ui:repeat>
 		</div>
 
+		<div class="thumbnail">
+			Último vizualizado <a
+				href="../public/showProd.xhtml?prodId=#{showProducts.product.id}"><img
+				src="#{showProducts.product.image}"> </img></a>
+		</div>
+		<a href="listCat.xhtml?prodId=#{showProducts.product.id}">
+			#{showProducts.product.name}</a>
+
+
 	</div>
+
+
 
 </composite:implementation>
 </html>

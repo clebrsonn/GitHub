@@ -1,4 +1,4 @@
-package training.osms.presentation.category;
+package training.osms.presentation.promoMail;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -9,50 +9,56 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import training.framework.business.BusinessException;
-import training.osms.business.category.CatController;
+import training.osms.business.PromoMail.PromoController;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_REQUEST)
-public class NewCategory {
+public class NewPromoMail {
 
 	private @Autowired
-	CatController controller;
-	private CatForm form;
+	PromoController controller;
+	private PromoForm form;
 
-	public NewCategory() {
+	public NewPromoMail() {
 		reset();
 	}
 
 	public void reset() {
-		form = new CatForm();
+		form = new PromoForm();
 	}
 
-	public void setCategory(CatForm form) {
-		this.form = form;
+	public PromoController getController() {
+		return controller;
 	}
 
-	public CatForm getForm() {
+	public void setController(PromoController controller) {
+		this.controller = controller;
+	}
+
+	public PromoForm getForm() {
 		return form;
 	}
 
-	public void saveCat() {
-		String clientId;
+	public void setForm(PromoForm form) {
+		this.form = form;
+	}
+
+	public void savePromo() {
 		FacesMessage message = new FacesMessage();
 		try {
-			controller.save(form.getCategory());
-			clientId = null;
-			message.setSummary("Category was successfully saved");
+			controller.savePromo(form.getPromoMail());
+
+			message.setSummary("PromoMail was successfully saved");
 			message.setSeverity(FacesMessage.SEVERITY_INFO);
+			reset();
 
 		} catch (BusinessException e) {
-			clientId = "form:cat:name";
+
 			message.setSummary(e.getMessage());
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 		}
 
 		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(clientId, message);
-		reset();
+		context.addMessage(null, message);
 	}
-
 }

@@ -15,7 +15,7 @@ import training.osms.business.product.ProdSearchOptions;
 import training.osms.business.product.Product;
 
 @Component
-@Scope(WebApplicationContext.SCOPE_REQUEST)
+@Scope(WebApplicationContext.SCOPE_SESSION)
 public class ShowProducts {
 
 	private static final int RESULTS_PER_PAGE = 9;

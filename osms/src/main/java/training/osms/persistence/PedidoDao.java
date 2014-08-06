@@ -26,6 +26,13 @@ public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {
 		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
 			predicate.append(" and pedido.id = :pedId");
 		}
+		
+
+		if (options.getUserId() != null && options.getUserId() > 0) {
+			predicate.append(" and pedido.user = :userId");
+		}
+
+		
 		if (options.getDate() != null && options.getDateFim() != null) {
 			predicate
 					.append(" and pedido.dateBuy between :pedidoDate and :pedidoFim");
@@ -53,6 +60,9 @@ public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {
 		}
 		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
 			query.setParameter("pedId", options.getPedidoId());
+		}
+		if (options.getUserId() != null && options.getUserId() > 0) {
+			query.setParameter("userId", options.getUserId());
 		}
 	}
 

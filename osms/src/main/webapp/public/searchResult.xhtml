@@ -69,13 +69,13 @@
 					styleClass="table-striped table-bordered table-condensed table-hover"
 					columnClasses="col-sm-3, col-sm-4, col-sm-4, col-sm-3 "
 					rendered="#{searchProd.result.isEmpty()==false}">
-
 					<h:column>
 						<f:facet name="header">
 						Image
 					</f:facet>
 						<div class="thumbnail">
-							<img src="#{product.image}" alt="..."> </img>
+							<a href="../public/showProd.xhtml?prodId=#{product.id}"><img
+								src="#{product.image}" alt="..."> </img></a>
 						</div>
 					</h:column>
 
@@ -83,16 +83,9 @@
 						<f:facet name="header">
 						Name
 					</f:facet>
-				#{product.name}
-				</h:column>
-
-					<h:column>
-						<f:facet name="header">
-						Description
-					</f:facet>
-				#{product.description}
-				</h:column>
-
+						<a href="../public/showProd.xhtml?prodId=#{product.id}">
+							#{product.name}</a>
+					</h:column>
 					<h:column>
 						<f:facet name="header">
 						Price

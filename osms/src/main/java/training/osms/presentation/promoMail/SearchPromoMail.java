@@ -1,4 +1,4 @@
-package training.osms.presentation.avaliacao;
+package training.osms.presentation.promoMail;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Component
 @Scope(WebApplicationContext.SCOPE_SESSION)
-public class SearchAva {
+public class SearchPromoMail {
 	
 	
 

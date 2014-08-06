@@ -7,16 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import training.osms.business.PromoMail.PromoMail;
 import training.osms.business.avaliacao.Avaliacao;
 import training.osms.business.pedido.Pedido;
 import training.osms.business.product.Product;
 
 @Entity
 @Table(name = "USE_USER")
-public class User {
+public class User implements Cloneable {
 
 	private Integer id;
 	private String name;
@@ -25,6 +27,7 @@ public class User {
 	private List<Pedido> pedidos;
 
 	private List<Avaliacao> avaliacao;
+	private List<PromoMail> promoMails;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,6 +86,18 @@ public class User {
 	public List<Avaliacao> getAvaliacao() {
 		return avaliacao;
 	}
+	
+	public void setPromoMails(List<PromoMail> promoMails) {
+		this.promoMails = promoMails;
+	}
+
+	@ManyToMany(mappedBy = "userMail")
+	public List<PromoMail> getPromoMails() {
+		return promoMails;
+	}
+
+	
+	
 
 	@Override
 	public User clone() {

@@ -62,7 +62,7 @@
 		<h:form>
 			<h:dataTable value="#{searchProd.result}" var="product"
 				styleClass="table-striped table-bordered table-condensed table-hover"
-				columnClasses="col-sm-3, col-sm-3, col-sm-3, col-sm-2 "
+				columnClasses="col-sm-3, col-sm-7, col-sm-2, col-sm-2, col-sm-2 "
 				rendered="#{searchProd.result.isEmpty()==false}">
 
 				<h:column>
@@ -82,12 +82,7 @@
 						#{product.name}</a>
 				</h:column>
 
-				<h:column>
-					<f:facet name="header">
-						Description
-					</f:facet>
-				#{product.description}
-				</h:column>
+
 
 				<h:column>
 					<f:facet name="header">

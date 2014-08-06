@@ -50,7 +50,7 @@ public class PedController {
 			if (pedido.getId().equals(databasePedido.getId())) {
 				dao.updateEntity(pedido);
 			} else {
-				throw new BusinessException("There is a pedido named "
+				throw new BusinessException("There is a pedido id: "
 						+ pedido.getId() + " already");
 			}
 		}

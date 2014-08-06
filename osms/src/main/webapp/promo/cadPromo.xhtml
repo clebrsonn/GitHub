@@ -6,27 +6,21 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-
 <ui:composition template="../templateAdmin.xhtml">
 
-	<ui:define name="title">Insert title here</ui:define>
-
+	<ui:define name="title">Cadastro de PromoMail</ui:define>
 	<ui:define name="content">
-	
-		<h1 class="page-header">Delete Category</h1>
+		<h1 class="page-header">Cadastro de Produtos</h1>
+		<h:form id="form" styleClass="form-horizontal">
+			<osms:formPromo id="prod" form="#{newPromoMail.form}">
 
-		<h:form styleClass="form-horizontal">
+				<f:facet name="buttons">
 
-			<osms:formCat form="#{searchCat.form}" disabled="true" >
-			
-			<f:facet name="buttons">
-				<h:commandButton class="btn btn-default" value="Delete"
-					action="#{searchCat.confirmDeletion}"
-					disabled="#{searchCat.catDeleted}" />
-				<h:button class="btn btn-default" value="Back"
-					outcome="searchCategory" />
-			</f:facet>
-			</osms:formCat>
+					<h:commandButton class="btn btn-primary" value="Save"
+						action="#{newPromoMail.savePromo}" />
+
+				</f:facet>
+			</osms:formPromo>
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -10,32 +10,13 @@
 
 <ui:composition template="../templateAdmin.xhtml">
 
-	<ui:define name="title">Search the Request</ui:define>
+	<ui:define name="title">Search the Promo</ui:define>
 
 	<ui:define name="content">
 
-		<h1 class="page-header">Search the Request</h1>
+		<h1 class="page-header">Search the Promo</h1>
 
-		<h:form id="searchPed" styleClass="form-horizontal">
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Usuário</label>
-				<div class="col-sm-10">
-					<h:selectOneMenu styleClass="form-control"
-						value="#{searchPed.options.userId}">
-						<f:selectItem itemValue="null" itemLabel="Selecione um Usuário"></f:selectItem>
-						<f:selectItems value="#{newPedido.form.users}" var="user"
-							itemLabel="#{user.name}" itemValue="#{user.id}">
-
-						</f:selectItems>
-
-					</h:selectOneMenu>
-
-				</div>
-			</div>
-
-
-
+		<h:form id="searchPromoMail" styleClass="form-horizontal">
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Período</label>
@@ -43,7 +24,7 @@
 				<div class="col-sm-2">
 					De:
 					<h:inputText id="dataIni" styleClass="form-control"
-						value="#{searchPed.options.date}" p:placeholder="Data do pedido"
+						value="#{searchPromoMail.options.date}" p:placeholder="Data do pedido"
 						p:type="date">
 						<f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-3"
 							locale="pt_BR" />
@@ -52,7 +33,7 @@
 				<div class="col-sm-2">
 					Até:
 					<h:inputText id="DataFim" styleClass="form-control"
-						value="#{searchPed.options.dateFim}"
+						value="#{searchPromoMail.options.dateFim}"
 						p:placeholder="Data do pedido" p:type="date">
 						<f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-3"
 							locale="pt_BR" />
@@ -64,14 +45,14 @@
 			<div class="col-sm-offset-2" style="padding-bottom: 10px">
 				<h:commandLink
 					styleClass="btn btn-lg btn-success glyphicon glyphicon-search"
-					title="Search" action="#{searchPed.search()}"> Search</h:commandLink>
+					title="Search" action="#{searchPromoMail.search()}"> Search</h:commandLink>
 			</div>
 			<h:messages></h:messages>
 		</h:form>
 		<h:form>
-			<h:dataTable value="#{searchPed.result}" var="pedido"
+			<h:dataTable value="#{searchPromoMail.result}" var="pedido"
 				styleClass="table table-striped table-bordered table-condensed table-hover"
-				rendered="#{searchPed.result.isEmpty()==false}">
+				rendered="#{searchPromoMail.result.isEmpty()==false}">
 				<h:column>
 					<f:facet name="header">
 						ID
@@ -88,16 +69,16 @@
 
 					<h:commandLink
 						styleClass="btn btn-primary glyphicon glyphicon-eye-open"
-						title="See Order" action="#{searchPed.viewPedido(pedido.id)}" />
+						title="See Order" action="#{searchPromoMailMail.viewPromo(pedido.id)}" />
 				</h:column>
 
 			</h:dataTable>
 
 			<center>
 				<ul class="pagination">
-					<ui:repeat value="#{searchPed.pages}" var="page">
-						<li class="#{searchPed.getPageClass(page)}"><h:commandLink
-								value="#{page}" action="#{searchPed.goToPage(page)}">
+					<ui:repeat value="#{searchPromoMail.pages}" var="page">
+						<li class="#{searchPromoMail.getPageClass(page)}"><h:commandLink
+								value="#{page}" action="#{searchPromoMail.goToPage(page)}">
 								<f:ajax render="@form"></f:ajax>
 							</h:commandLink></li>
 					</ui:repeat>

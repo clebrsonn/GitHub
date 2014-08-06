@@ -16,12 +16,14 @@
 
 <composite:implementation>
 
+
+
 	<div class="form-group">
-		<label class="col-sm-2 control-label">Cadastrar Pedido:</label>
+		<label class="col-sm-2 control-label">Buscar Pedido:</label>
 		<div class="col-sm-6">
 			<h:inputText id="id" styleClass="form-control"
 				value="#{cc.attrs.form.pedido.id}" disabled="#{cc.attrs.disabled}"
-				p:placeholder="Cadastrar Pedido" />
+				p:placeholder="Buscar Pedido" />
 		</div>
 		<h:messages></h:messages>
 	</div>
@@ -31,12 +33,9 @@
 		<div class="col-sm-6">
 			<h:inputTextarea styleClass="form-control" id="date"
 				value="#{cc.attrs.form.pedido.dateBuy}"
-				disabled="#{cc.attrs.disabled}"
-				p:placeholder="Data do pedido"></h:inputTextarea>
+				disabled="#{cc.attrs.disabled}" p:placeholder="Data do pedido"></h:inputTextarea>
 		</div>
 	</div>
-
-
 
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-5">

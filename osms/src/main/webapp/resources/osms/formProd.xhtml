@@ -86,7 +86,16 @@
 				disabled="#{cc.attrs.disabled}"
 				p:placeholder="Url da imagem do Produto" />
 		</div>
+
+
+		<h:selectBooleanCheckbox value="#{cc.attrs.form.product.visible}"
+			layout="pageDirection">
+			
+		</h:selectBooleanCheckbox>
+		<label class="col-sm-2 control-label">Visível</label>
+
 	</div>
+
 
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-5">

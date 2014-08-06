@@ -19,8 +19,6 @@
 		<osms:navBarHeaderPublic activeHome="active"></osms:navBarHeaderPublic>
 
 		<div class="col-sm-9">
-			<osms:breadCrumb vis="Último vizualizado: "></osms:breadCrumb>
-
 			<div class="row" value="#{showProducts.listProd()}">
 				<h:form>
 					<div class="col-sm-12">
@@ -31,10 +29,10 @@
 									<a href="showProd.xhtml?prodId=#{product.id}"> <img
 										src="#{product.image}" alt="..." /></a>
 									<div class="caption">
-										<h3>
+										<h5>
 											<a href="showProd.xhtml?prodId=#{product.id}">
 												#{product.name} </a>
-										</h3>
+										</h5>
 										Price R$ #{product.price}
 									</div>
 								</div>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<composite:interface>
+	<composite:attribute name="form" />
+	<composite:attribute name="disabled" default="false" />
+
+	<composite:facet name="buttons"></composite:facet>
+
+</composite:interface>
+
+<composite:implementation>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Nome PromoMail:</label>
+		<div class="col-sm-6">
+			<h:inputText id="id" styleClass="form-control"
+				value="#{cc.attrs.form.promoMail.name}"
+				disabled="#{cc.attrs.disabled}"
+				p:placeholder="Insert Name PromoMail" p:required="true"/>
+		</div>
+		<h:messages></h:messages>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Pedíodo do promoMail:</label>
+		<div class="col-sm-2">
+			<h:inputText id="dataIni" styleClass="form-control"
+				value="#{cc.attrs.form.promoMail.dateIni}"
+				p:placeholder="Data do pedido" p:type="date" p:required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-3"
+					locale="pt_BR" />
+			</h:inputText>
+		</div>
+
+		<div class="col-sm-2">
+
+			<h:inputText id="dataFim" styleClass="form-control"
+				value="#{cc.attrs.form.promoMail.dateFim}"
+				p:placeholder="Data do pedido" p:type="date" p:required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd" timeZone="GMT-3"
+					locale="pt_BR" />
+			</h:inputText>
+		</div>
+
+	</div>
+
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Produtos</label>
+		<div class="col-sm-10">
+			<!-- Button trigger modal -->
+			<button class="btn btn-primary" data-toggle="modal"
+				data-target="#myModal" onclick="return false;">Adicionar</button>
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">User</label>
+		<div class="col-sm-10">
+			<!-- Button trigger modal -->
+			<button class="btn btn-primary" data-toggle="modal"
+				data-target="#myModal2" onclick="return false;">Adicionar</button>
+		</div>
+	</div>
+
+
+
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-5">
+			<div class="btn-toolbar">
+				<composite:renderFacet name="buttons"></composite:renderFacet>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">Tags</h4>
+				</div>
+				<div class="modal-body" style="max-height: 300px; overflow: auto;">
+					<h:selectManyCheckbox value="#{cc.attrs.form.productIds}"
+						layout="pageDirection">
+						<f:selectItems value="#{cc.attrs.form.products}" var="product"
+							itemLabel="#{product.name}" itemValue="#{product.id}">
+						</f:selectItems>
+					</h:selectManyCheckbox>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">Tags</h4>
+				</div>
+				<div class="modal-body" style="max-height: 300px; overflow: auto;">
+					
+						<h:selectManyCheckbox value="#{cc.attrs.form.userIds}"
+							layout="pageDirection">
+							<f:selectItems value="#{cc.attrs.form.users}" var="user"
+								itemLabel="#{user.name} / #{user.email}" itemValue="#{user.id}">
+							</f:selectItems>
+						</h:selectManyCheckbox>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</composite:implementation>
+</html>

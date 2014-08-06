@@ -42,7 +42,8 @@ public class NewPedido {
 		try {
 			form.getPedido().setDateBuy(new Date());
 			controller.savePedido(form.getPedido());
-			message.setSummary("Pedido was successfully saved");
+			message.setSummary("Pedido " + form.getPedido().getId()
+					+ " was successfully saved");
 			message.setSeverity(FacesMessage.SEVERITY_INFO);
 
 			reset();

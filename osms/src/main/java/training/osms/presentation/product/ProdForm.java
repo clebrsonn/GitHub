@@ -7,7 +7,6 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import training.osms.business.PromoMail.PromoMail;
 import training.osms.business.avaliacao.AvaController;
 import training.osms.business.avaliacao.AvaSearchOptions;
 import training.osms.business.avaliacao.Avaliacao;
@@ -30,7 +29,7 @@ public class ProdForm {
 	private List<User> users;
 
 	private List<Avaliacao> avaliacao;
-	private List<PromoMail> promoMails;
+//	private List<PromoMail> promoMails;
 
 	public ProdForm() {
 
@@ -91,13 +90,13 @@ public class ProdForm {
 		return avaliacao;
 	}
 
-	public void setPromoMails(List<PromoMail> promoMails) {
-		this.promoMails = promoMails;
-	}
-
-	public List<PromoMail> getPromoMails() {
-		return promoMails;
-	}
+//	public void setPromoMails(List<PromoMail> promoMails) {
+//		this.promoMails = promoMails;
+//	}
+//
+//	public List<PromoMail> getPromoMails() {
+//		return promoMails;
+//	}
 
 	public void setUsers(List<User> users) {
 		this.users = users;

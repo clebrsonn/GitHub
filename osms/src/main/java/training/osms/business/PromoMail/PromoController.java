@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import training.framework.business.BusinessException;
 import training.osms.persistence.PromoDao;
 
 @Component
@@ -20,7 +21,15 @@ public class PromoController {
 
 	@Transactional
 	public void savePromo(PromoMail promo) {
-		dao.insertEntity(promo);
+		if (promo.getDateIni().after(promo.getDateFim())) {
+			throw new BusinessException("Insert a valid date");
+		} else if (promo.getUserMail().equals(null)
+				|| promo.getProductMail().equals(null)) {
+			throw new BusinessException("User and product required");
+		} else {
+
+			dao.insertEntity(promo);
+		}
 	}
 
 	public Integer searchProdCount(PromoSearchOptions options) {

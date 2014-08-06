@@ -1,5 +1,6 @@
 package training.osms.business.PromoMail;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,18 +16,26 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import training.osms.business.frete.Frete;
 import training.osms.business.product.Product;
+import training.osms.business.user.User;
 
 @Entity
 @Table(name = "PRM_PROMOMAIL")
-public class PromoMail {
+public class PromoMail implements Cloneable {
 
 	private Date dateIni;
 	private Date dateFim;
 	private String name;
 	private Integer id;
 
+	private List<User> userMail;
 	private List<Product> productMail;
+
+	public PromoMail() {
+		userMail = new ArrayList<>();
+		productMail = new ArrayList<>();
+	}
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "PRM_INI_DATE")
@@ -68,13 +77,32 @@ public class PromoMail {
 		this.id = id;
 	}
 
+	public void setUserMail(List<User> userMail) {
+		this.userMail = userMail;
+	}
+
+	@ManyToMany
+	@JoinTable(name = "UMC_USER_PROMOMAIL", joinColumns = @JoinColumn(name = "PRM_ID"), inverseJoinColumns = @JoinColumn(name = "USE_ID"))
+	public List<User> getUserMail() {
+		return userMail;
+	}
+
 	public void setProductMail(List<Product> productMail) {
 		this.productMail = productMail;
 	}
 
 	@ManyToMany
-	@JoinTable(name = "PMC_PRODUCT_PROMOMAIL", joinColumns = @JoinColumn(name = "PRM_ID"), inverseJoinColumns = @JoinColumn(name = "PRO_ID"))
+	@JoinTable(name = "PMC_PROD_PROMOMAIL", joinColumns = @JoinColumn(name = "PRM_ID"), inverseJoinColumns = @JoinColumn(name = "PRO_ID"))
 	public List<Product> getProductMail() {
 		return productMail;
+	}
+	
+	@Override
+	public PromoMail clone() {
+		try {
+			return (PromoMail) super.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new Error(" A VM está louca!");
+		}
 	}
 }

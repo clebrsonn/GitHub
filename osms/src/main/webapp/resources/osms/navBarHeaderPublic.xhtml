@@ -31,11 +31,15 @@
 					<li class="#{cc.attrs.activeHome}"><a
 						href="../public/listProd.xhtml" class="glyphicon glyphicon-home" /></li>
 					<li><a href="../admin/dash.xhtml">Admin</a></li>
-					<li class="dropdown #{cc.attrs.activeOrder}"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">Carrinho <b
+
+					<li class="#{cc.attrs.activeOrder}"><a href="../public/closePed.xhtml">Close Order </a></li>
+
+					<li class="dropdown"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown">Carrinho <span
+							class="badge alert-danger">#{newPedido.form.getTotalItens()}</span><b
 							class="caret"></b></a>
 						<ul class="dropdown-menu"
-							style="max-height: 300px; overflow: auto;">
+							style="width: 500px; max-height: 400px; overflow: auto;">
 							<ui:repeat var="product"
 								value="#{newPedido.form.pedido.products}">
 								<li class="list-group-item">
@@ -65,22 +69,6 @@
 
 							<li><a href="../public/closePed.xhtml">Close Order</a></li>
 						</ul></li>
-
-
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Categorias<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<ui:repeat var="category" value="#{showCategory.form.categories}">
-								<li><a href="listCat.xhtml?catId=#{category.id}">
-										#{category.name}</a></li>
-								<li class="divider"></li>
-							</ui:repeat>
-						</ul></li>
-
-
-
-
-
 
 				</ul>
 				<h:form class="navbar-form navbar-right">

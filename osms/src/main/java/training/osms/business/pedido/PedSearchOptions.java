@@ -25,6 +25,7 @@ public class PedSearchOptions extends AbstractEntitySearchOptions {
 	private boolean desc;
 	private Integer prodId;
 	private Date dateFim;
+	private Integer userId;
 
 	public PedSearchOptions() {
 		order = Order.DATE_BUY;
@@ -77,4 +78,16 @@ public class PedSearchOptions extends AbstractEntitySearchOptions {
 	public Date getDateFim() {
 		return dateFim;
 	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+	
+	
+	
+	
 }

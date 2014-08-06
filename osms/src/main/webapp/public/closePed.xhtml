@@ -31,7 +31,7 @@
 
 					</div>
 				</div>
-<div></div>
+				<div></div>
 
 				<div class="form-group">
 					<h:dataTable value="#{newPedido.form.pedido.products}"
@@ -57,12 +57,6 @@
 							<a href="showProd.xhtml?prodId=#{product.id}">#{product.name}</a>
 						</h:column>
 
-						<h:column>
-							<f:facet name="header">
-						Description
-					</f:facet>
-				#{product.description}
-				</h:column>
 
 						<h:column>
 							<f:facet name="header">
@@ -83,8 +77,14 @@
 				</div>
 
 				<div class="form-group">
-					<h:commandButton class="btn btn-default" value="Salvar"
-						action="#{newPedido.save}" />
+					<div class="col-sm-offset-2 col-sm-5">
+						<div class="btn-toolbar">
+							<h:commandButton class="btn btn-default" value="Comprar"
+								action="#{newPedido.save}" />
+							<h:button class="btn btn-default" value="Continue Comprando"
+					outcome="Home" />
+						</div>
+					</div>
 				</div>
 				<h:messages></h:messages>
 			</h:form>

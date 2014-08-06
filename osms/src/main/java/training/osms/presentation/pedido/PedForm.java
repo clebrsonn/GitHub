@@ -85,12 +85,16 @@ public class PedForm {
 		}
 	}
 
-	public List<String> getPemove() {
+	public List<String> getRemove() {
 		List<String> prodIds = new ArrayList<>();
 		for (Product product : pedido.getProducts()) {
 			prodIds.add(product.getId().toString());
 		}
 		return prodIds;
+	}
+	
+	public Integer getTotalItens(){
+		return pedido.getProducts().size();
 	}
 
 	public void setTotal(double total) {

@@ -23,9 +23,9 @@
 	</bean>
 		
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
-		<property name="driverClass" value="org.h2.Driver"/>
-		<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/~/osms"/>
-   		<property name="username" value="sa"/>
-   		<property name="password" value=""/>   		   		
+		<property name="driverClass" value="org.postgresql.Driver"/>
+		<property name="jdbcUrl" value="jdbc:postgresql://localhost/osms"/>
+   		<property name="username" value="postgres"/>
+   		<property name="password" value="admin"/>   		   		
 	</bean>		
 </beans>

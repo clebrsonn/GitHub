@@ -12,19 +12,19 @@
 
 	<ui:define name="content">
 		<h:form class="form-horizontal">
-			<h1>Update your Blog</h1>
+			<h1>Update your User</h1>
 
-			<osms:formCat form="#{searchCat.form}">
+			<osms:formUser form="#{searchUser.form}">
 
 				<f:facet name="buttons">
 
 					<h:commandButton class="btn btn-default" value="Update"
-						action="#{searchCat.confirmUpdate}"></h:commandButton>
+						action="#{searchUser.confirmUpdateUser}"></h:commandButton>
 
 					<h:button class="btn btn-default" value="Back"
-						outcome="searchCategory" />
+						outcome="searchUser" />
 				</f:facet>
-			</osms:formCat>
+			</osms:formUser>
 		</h:form>
 	</ui:define>
 </ui:composition>

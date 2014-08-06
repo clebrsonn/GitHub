@@ -60,7 +60,7 @@ public class Product implements Cloneable {
 	@Column(name = "PRO_IMAGE")
 	public String getImage() {
 		if (image == null)
-			return "http://placehold.it/235x151";
+			return "http://placehold.it/235x235";
 		else
 			return image;
 
@@ -132,7 +132,7 @@ public class Product implements Cloneable {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "USE_ID", nullable=false)
+	@JoinColumn(name = "USE_ID", nullable = false)
 	public User getUser() {
 		return user;
 	}
@@ -141,7 +141,7 @@ public class Product implements Cloneable {
 		this.promoMails = promoMails;
 	}
 
-	@ManyToMany(mappedBy = "productMail")
+	@ManyToMany(mappedBy="productMail")
 	public List<PromoMail> getPromoMails() {
 		return promoMails;
 	}

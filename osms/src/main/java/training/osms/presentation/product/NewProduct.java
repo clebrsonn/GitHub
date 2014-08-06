@@ -20,6 +20,10 @@ public class NewProduct {
 	private ProdForm form;
 
 	public NewProduct() {
+		reset();
+	}
+
+	public void reset() {
 		form = new ProdForm();
 	}
 
@@ -40,6 +44,7 @@ public class NewProduct {
 			clientId = null;
 			message.setSummary("Product was successfully saved");
 			message.setSeverity(FacesMessage.SEVERITY_INFO);
+			reset();
 
 		} catch (BusinessException e) {
 			clientId = "form:prod:name";
@@ -49,6 +54,7 @@ public class NewProduct {
 
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.addMessage(clientId, message);
+		
 	}
 
 }
