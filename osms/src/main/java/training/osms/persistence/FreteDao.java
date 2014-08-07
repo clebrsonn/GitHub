@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.frete.FreSearchOptions;
-import training.osms.business.frete.Frete;
+import training.osms.business.FreSearchOptions;
+import training.osms.business.Frete;
 
 @Component
 public class FreteDao extends EntityDao<Frete, FreSearchOptions> {
@@ -27,12 +27,12 @@ public class FreteDao extends EntityDao<Frete, FreSearchOptions> {
 			predicate.append(" and frete.id = :freteId");
 		}
 
-		if (options.getUserId() != null && options.getUserId() > 0) {
-			predicate.append(" and frete.user.id = :userId");
-		}
-		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
-			predicate.append(" and frete.pedido.id = :pedidoId");
-		}
+//		if (options.getUserId() != null && options.getUserId() > 0) {
+//			predicate.append(" and frete.pedido.user.id = :userId");
+//		}
+//		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
+//			predicate.append(" and frete.pedido.id = :pedidoId");
+//		}
 		if (options.getTipoFrete() != null
 				&& options.getTipoFrete().length() > 0) {
 			predicate.append(" and frete.tipoFrete = :tipoFrete");
@@ -46,12 +46,12 @@ public class FreteDao extends EntityDao<Frete, FreSearchOptions> {
 		if (options.getFreteId() != null && options.getFreteId() > 0) {
 			query.setParameter("freteId", options.getFreteId());
 		}
-		if (options.getUserId() != null && options.getUserId() > 0) {
-			query.setParameter("userId", options.getUserId());
-		}
-		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
-			query.setParameter("pedidoId", options.getPedidoId());
-		}
+//		if (options.getUserId() != null && options.getUserId() > 0) {
+//			query.setParameter("userId", options.getUserId());
+//		}
+//		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
+//			query.setParameter("pedidoId", options.getPedidoId());
+//		}
 		if (options.getTipoFrete() != null
 				&& options.getTipoFrete().length() > 0) {
 			query.setParameter("tipoFrete", options.getTipoFrete());

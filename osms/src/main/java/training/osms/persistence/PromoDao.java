@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.PromoMail.PromoMail;
-import training.osms.business.PromoMail.PromoSearchOptions;
+import training.osms.business.PromoMail;
+import training.osms.business.PromoSearchOptions;
 
 @Component
 public class PromoDao extends EntityDao<PromoMail, PromoSearchOptions> {

@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.pedido.PedSearchOptions;
-import training.osms.business.pedido.Pedido;
+import training.osms.business.PedSearchOptions;
+import training.osms.business.Pedido;
 
 @Component
 public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {
@@ -26,13 +26,11 @@ public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {
 		if (options.getPedidoId() != null && options.getPedidoId() > 0) {
 			predicate.append(" and pedido.id = :pedId");
 		}
-		
 
 		if (options.getUserId() != null && options.getUserId() > 0) {
-			predicate.append(" and pedido.user = :userId");
+			predicate.append(" and pedido.user.id = :userId");
 		}
 
-		
 		if (options.getDate() != null && options.getDateFim() != null) {
 			predicate
 					.append(" and pedido.dateBuy between :pedidoDate and :pedidoFim");
@@ -64,6 +62,7 @@ public class PedidoDao extends EntityDao<Pedido, PedSearchOptions> {
 		if (options.getUserId() != null && options.getUserId() > 0) {
 			query.setParameter("userId", options.getUserId());
 		}
+
 	}
 
 	@Override

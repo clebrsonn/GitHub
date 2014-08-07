@@ -19,47 +19,20 @@
 		<h:form id="searchFrete" styleClass="form-horizontal">
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Usuário</label>
-				<div class="col-sm-10">
-					<h:selectOneMenu styleClass="form-control"
-						value="#{searchFrete.options.userId}">
-						<f:selectItem itemValue="null" itemLabel="Selecione um Usuário"></f:selectItem>
-						<f:selectItems value="#{newPedido.form.users}" var="user"
-							itemLabel="#{user.name}" itemValue="#{user.id}">
-
-						</f:selectItems>
-
-					</h:selectOneMenu>
-
-				</div>
-			</div>
-
-			<div class="form-group">
 				<label class="col-sm-2 control-label">Tipo do frete:</label>
 				<div class="col-sm-6">
 					<h:inputText styleClass="form-control"
-						value="#{searchFre.options.tipoFrete}"
-						disabled="#{cc.attrs.disabled}" p:placeholder="Tipo de Frete" />
+						value="#{searchFrete.options.tipoFrete}"
+						p:placeholder="Tipo de Frete" />
 				</div>
+			</div>
 
-
-
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Id do pedido:</label>
-					<div class="col-sm-6">
-						<h:inputText styleClass="form-control"
-							value="#{cc.attrs.form.frete.pedidoId}"
-							disabled="#{cc.attrs.disabled}" p:type="number" />
-					</div>
-
-
-					<div class="col-sm-offset-2" style="padding-bottom: 10px">
-						<h:commandLink
-							styleClass="btn btn-lg btn-success glyphicon glyphicon-search"
-							title="Search" action="#{searchFrete.search()}"> Search</h:commandLink>
-					</div>
-					<h:messages></h:messages>
+			<div class="col-sm-offset-2" style="padding-bottom: 10px">
+				<h:commandLink
+					styleClass="btn btn-lg btn-success glyphicon glyphicon-search"
+					title="Search" action="#{searchFrete.search()}"> Search</h:commandLink>
+			</div>
+			<h:messages></h:messages>
 		</h:form>
 		<h:form>
 			<h:dataTable value="#{searchFrete.result}" var="frete"

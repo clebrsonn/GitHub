@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14039799391390" configfile="/osms/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf14039801282151" referenceLink="//@navigationRule.15/@fromViewId|" outlinks="pf14039801282162 pf14039801282163 pf14039801282164 pf14039801282165 pf14039801282166 pf14039801282168 pf14041817524422 pf14041817766164 pf14046779002830 pf14047032799470 pf14071001435966 pf14071001435967 pf14071001435968 pf14071172732593 pf14072005982965 pf14072006391267 pf14072006391268" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf14039801282151" referenceLink="//@navigationRule.18/@fromViewId|" outlinks="pf14039801282162 pf14039801282163 pf14039801282164 pf14039801282165 pf14039801282166 pf14039801282168 pf14041817524422 pf14041817766164 pf14046779002830 pf14047032799470 pf14071001435966 pf14071001435967 pf14071001435968 pf14071172732593 pf14072005982965 pf14072006391267 pf14073722896160 pf14073833599770 pf14073833599772 pf14073833694596" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="category/deleteCategory.xhtml" id="pf14039801282169" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14039801282162" path="/category/deleteCat.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="category/searchCategory.xhtml" id="pf140398012821710" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14039801282163" path="/category/searchCat.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="category/updateCategory.xhtml" id="pf140398012821711" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14039801282164" path="/category/updateCat.xhtml"/>
@@ -11,13 +11,16 @@
   <nodes xsi:type="pageflow:PFPage" name="product/deleteProd.xhtml" id="pf14041817766175" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf14041817766164" path="/product/deleteProd.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="pedido/closePed.xhtml" id="pf14046779002841" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf14046779002830" path="/pedido/closePed.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="public/searchResult.xhtml" id="pf14047032799491" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" inlinks="pf14047032799470" path="/public/searchResult.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="user/searchUser.xhtml" id="pf14071001435989" referenceLink="//@navigationRule.14/@navigationCase.0/@toViewId|" inlinks="pf14071001435966" path="/user/searchUser.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="user/updateUser.xhtml" id="pf140710014359810" referenceLink="//@navigationRule.15/@navigationCase.0/@toViewId|" inlinks="pf14071001435967" path="/user/updateUser.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="user/deleteUser.xhtml" id="pf140710014359811" referenceLink="//@navigationRule.16/@navigationCase.0/@toViewId|" inlinks="pf14071001435968" path="/user/deleteUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user/searchUser.xhtml" id="pf14071001435989" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf14071001435966" path="/user/searchUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user/updateUser.xhtml" id="pf140710014359810" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" inlinks="pf14071001435967" path="/user/updateUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user/deleteUser.xhtml" id="pf140710014359811" referenceLink="//@navigationRule.13/@navigationCase.0/@toViewId|" inlinks="pf14071001435968" path="/user/deleteUser.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="public/listProd.xhtml" id="pf14071172732604" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14071172732593" path="/public/listProd.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="promo/searchPromo.xhtml" id="pf14072005982996" referenceLink="//@navigationRule.14/@navigationCase.0/@toViewId|" inlinks="pf14072005982965" path="/promo/searchPromo.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="promo/deletePromo.xhtml" id="pf14072006391289" referenceLink="//@navigationRule.16/@navigationCase.0/@toViewId|" inlinks="pf14072006391267" path="/promo/deletePromo.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="promo/updatePromo.xhtml" id="pf140720063912810" referenceLink="//@navigationRule.15/@navigationCase.0/@toViewId|" inlinks="pf14072006391268" path="/promo/updatePromo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="promo/searchPromo.xhtml" id="pf14072005982996" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" inlinks="pf14072005982965" path="/promo/searchPromo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="promo/deletePromo.xhtml" id="pf14072006391289" referenceLink="//@navigationRule.19/@navigationCase.0/@toViewId|" inlinks="pf14072006391267" path="/promo/deletePromo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="promo/seePromo.xhtml" id="pf14073722896191" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" inlinks="pf14073722896160" path="/promo/seePromo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="frete/searchFrete.xhtml" id="pf14073833599803" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" inlinks="pf14073833599770" path="/frete/searchFrete.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="frete/deleteFrete.xhtml" id="pf14073833599815" referenceLink="//@navigationRule.19/@navigationCase.0/@toViewId|" inlinks="pf14073833599772" path="/frete/deleteFrete.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="frete/updateFrete.xhtml" id="pf14073833694617" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" inlinks="pf14073833694596" path="/frete/updateFrete.xhtml"/>
   <links id="pf14039801282162" target="pf14039801282169" source="pf14039801282151" outcome="deleteCategory"/>
   <links id="pf14039801282163" target="pf140398012821710" source="pf14039801282151" outcome="searchCategory"/>
   <links id="pf14039801282164" target="pf140398012821711" source="pf14039801282151" outcome="updateCategory"/>
@@ -33,6 +36,9 @@
   <links id="pf14071001435968" target="pf140710014359811" source="pf14039801282151" outcome="deleteUser"/>
   <links id="pf14071172732593" target="pf14071172732604" source="pf14039801282151" outcome="Home"/>
   <links id="pf14072005982965" target="pf14072005982996" source="pf14039801282151" outcome="searchPromoMail"/>
-  <links id="pf14072006391267" target="pf14072006391289" source="pf14039801282151" outcome="deletePromo"/>
-  <links id="pf14072006391268" target="pf140720063912810" source="pf14039801282151" outcome="updatePromo"/>
+  <links id="pf14072006391267" target="pf14072006391289" source="pf14039801282151" outcome="deletePromoMail"/>
+  <links id="pf14073722896160" target="pf14073722896191" source="pf14039801282151" outcome="seePromo"/>
+  <links id="pf14073833599770" target="pf14073833599803" source="pf14039801282151" outcome="searchFrete"/>
+  <links id="pf14073833599772" target="pf14073833599815" source="pf14039801282151" outcome="deleteFrete"/>
+  <links id="pf14073833694596" target="pf14073833694617" source="pf14039801282151" outcome="seeFrete"/>
 </pageflow:Pageflow>

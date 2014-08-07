@@ -2,78 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:osms="http://java.sun.com/jsf/composite/osms"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../templateAdmin.xhtml">
 
-	<ui:define name="title">Visualizar Pedido | OSMS</ui:define>
+	<ui:define name="title">New Frete</ui:define>
 
 	<ui:define name="content">
-		<h1 class="page-header">Ver Pedido</h1>
 
-		<h:form>
-			<div class="form-group">
+		<h1>Cadastre Frete</h1>
 
-				<h:dataTable value="#{searchPed.form.pedido.products}" var="product"
-					styleClass="table-striped table-bordered table-condensed table-hover"
-					columnClasses="col-sm-3, col-sm-3, col-sm-6 "
-					rendered="#{searchPed.form.pedido.products.isEmpty()==false}">
-					<h:column>
-						<f:facet name="header">
-						Image
-					</f:facet>
-						<a href="showProd.xhtml?prodId=#{product.id}">
-							<div class="thumbnail">
-								<img src="#{product.image}" alt="Image Product"> </img>
-							</div>
-						</a>
-					</h:column>
+		<h:form id="form" styleClass="form-horizontal">
 
-					<h:column>
-						<f:facet name="header">
-						Name
-					</f:facet>
-						<a href="../public/showProd.xhtml?prodId=#{product.id}">#{product.name}</a>
-					</h:column>
-
-					<h:column>
-						<f:facet name="header">
-						Description
-					</f:facet>
-				#{product.description}
-				</h:column>
-
-					<h:column>
-						<f:facet name="header">
-						Price
-					</f:facet>
-				R$ #{product.price}
-				
-				</h:column>
+			<osms:formFrete form="#{newFrete.form}">
+				<f:facet name="buttons">
+					<h:commandButton class="btn btn-primary" value="Save"
+						action="#{newFrete.saveFrete}" />
 
 
-					<h:column>
-						<f:facet name="header">
-						Em Estoque
-					</f:facet>
-				#{product.visible}
-				
-				</h:column>
-
-				</h:dataTable>
-
-
-
-			</div>
-			<div class="form-group">
-
-				<h:button class="btn btn-default" value="Back"
-					outcome="searchPedido" />
-			</div>
+				</f:facet>
+			</osms:formFrete>
 		</h:form>
-
 	</ui:define>
 </ui:composition>
 </html>

@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.avaliacao.AvaSearchOptions;
-import training.osms.business.avaliacao.Avaliacao;
+import training.osms.business.AvaSearchOptions;
+import training.osms.business.Avaliacao;
 
 @Component
 public class AvaDao extends EntityDao<Avaliacao, AvaSearchOptions> {

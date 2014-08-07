@@ -5,8 +5,8 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 import training.framework.persistence.EntityDao;
-import training.osms.business.product.ProdSearchOptions;
-import training.osms.business.product.Product;
+import training.osms.business.ProdSearchOptions;
+import training.osms.business.Product;
 
 @Component
 public class ProdDao extends EntityDao<Product, ProdSearchOptions> {

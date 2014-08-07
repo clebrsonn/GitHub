@@ -141,19 +141,44 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>updatePromo</from-outcome>
-			<to-view-id>/promo/updatePromo.xhtml</to-view-id>
+			<from-outcome>seePromo</from-outcome>
+			<to-view-id>/promo/seePromo.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>deletePromo</from-outcome>
+			<from-outcome>deletePromoMail</from-outcome>
 			<to-view-id>/promo/deletePromo.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
 
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>searchFrete</from-outcome>
+			<to-view-id>/frete/searchFrete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>seeFrete</from-outcome>
+			<to-view-id>/frete/updateFrete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>deleteFrete</from-outcome>
+			<to-view-id>/frete/deleteFrete.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
